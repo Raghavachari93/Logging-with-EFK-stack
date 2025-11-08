@@ -54,13 +54,13 @@ services:
       context: ./demo-app
     container_name: efk_demo_app
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - PYTHONUNBUFFERED=1
     logging:
       driver: "fluentd"
       options:
-        fluentd-address: localhost:24224
+        fluentd-address: host.docker.internal:24224
         tag: docker.demo-app
     depends_on:
       - fluentd
